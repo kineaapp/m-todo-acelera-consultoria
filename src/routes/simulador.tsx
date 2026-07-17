@@ -23,7 +23,7 @@ const MILESTONES = [
     id: "semana-1",
     label: "Semana 1",
     title: "O ajuste de rota",
-    icon: Route,
+    icon: RouteIcon,
     lines: [
       "Primeiros treinos, novo ritmo e a sensação de que finalmente existe um plano.",
       "A balança ainda não se mexeu — e tudo bem. O corpo está aprendendo a nova rotina.",
@@ -154,7 +154,7 @@ function SimuladorPage() {
         {/* Intro */}
         <div className="text-center mb-10 md:mb-14">
           <span className="inline-flex items-center justify-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange">
-            <Route className="h-3.5 w-3.5" />
+            <RouteIcon className="h-3.5 w-3.5" />
             Simulador de jornada
           </span>
           <h1 className="mt-4 text-3xl md:text-5xl font-black leading-tight text-navy">
