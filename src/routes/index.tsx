@@ -60,44 +60,35 @@ function CTAButton({
 }
 
 function Header() {
+  const [open, setOpen] = useState(false);
+  const navLinks = [
+    { to: "/", label: "Início" },
+    { to: "/quiz", label: "Quiz" },
+    { to: "/calculadora", label: "Calculadora" },
+    { to: "/simulador", label: "Simulador" },
+  ] as const;
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-cream/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
-        <a href="/" className="flex items-center gap-2">
-          <span className="text-lg md:text-xl font-black tracking-tight text-navy">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:py-4">
+        <Link to="/" className="flex items-center gap-2 min-w-0">
+          <span className="text-lg md:text-xl font-black tracking-tight text-navy truncate">
             Método Acelera<span className="text-orange">!</span>
           </span>
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
-          <Link to="/quiz" className="hover:text-orange transition-colors">
-            Quiz
-          </Link>
-          <Link to="/calculadora" className="hover:text-orange transition-colors">
-            Calculadora
-          </Link>
-          <Link to="/simulador" className="hover:text-orange transition-colors">
-            Simulador
-          </Link>
+          {navLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              activeOptions={{ exact: true }}
+              activeProps={{ className: "text-orange" }}
+              className="hover:text-orange transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Link
-            to="/quiz"
-            className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
-          >
-            Quiz
-          </Link>
-          <Link
-            to="/calculadora"
-            className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
-          >
-            Calculadora
-          </Link>
-          <Link
-            to="/simulador"
-            className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
-          >
-            Simulador
-          </Link>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -107,8 +98,45 @@ function Header() {
             <MessageCircle className="h-4 w-4" />
             WhatsApp
           </a>
+          <button
+            type="button"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-navy shadow-sm"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-cream">
+          <nav className="mx-auto max-w-6xl px-4 py-3 flex flex-col">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: true }}
+                activeProps={{ className: "text-orange" }}
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-bold text-navy border-b border-border/60 last:border-b-0"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-orange px-5 py-3 text-sm font-bold text-white shadow-md shadow-orange/20"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Falar no WhatsApp
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
