@@ -74,7 +74,7 @@ function Header() {
         <img
             src="/logo-metodo-acelera.png"
             alt="Método Acelera!"
-            className="h-12 md:h-16 w-auto"
+            className="h-14 md:h-20 w-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
