@@ -74,7 +74,7 @@ function Header() {
         <img
             src="/logo-metodo-acelera.png"
             alt="Método Acelera!"
-            className="h-8 md:h-10 w-auto"
+            className="h-12 md:h-16 w-auto"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
@@ -212,7 +212,7 @@ function AleStory() {
         <div className="order-1 md:order-2">
           <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-3xl bg-cream shadow-xl">
             <img
-              src="/ale-mancilha.jpg"
+              src="/foto-ale.jpg"
               alt="Ale Mancilha, personal trainer e fundador do Método Acelera!"
               className="absolute inset-0 h-full w-full object-cover"
             />
