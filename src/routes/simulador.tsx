@@ -85,18 +85,15 @@ function Header() {
 
 function TimelineItem({
   milestone,
-  index,
   isLast,
 }: {
   milestone: (typeof MILESTONES)[number];
-  index: number;
   isLast: boolean;
 }) {
   const Icon = milestone.icon;
-  const isEven = index % 2 === 0;
 
   return (
-    <div className="relative flex gap-4 md:gap-0">
+    <div className="relative flex gap-5">
       {/* Linha central */}
       <div className="flex flex-col items-center">
         <div className="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-orange text-white shadow-lg shadow-orange/25 z-10">
@@ -108,11 +105,7 @@ function TimelineItem({
       </div>
 
       {/* Conteúdo */}
-      <div
-        className={`pb-12 md:pb-16 md:absolute md:w-[calc(50%-2.5rem)] ${
-          isEven ? "md:left-0 md:text-right md:pr-8" : "md:right-0 md:pl-8"
-        }`}
-      >
+      <div className="pb-12 md:pb-16 flex-1">
         <span className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange">
           {milestone.label}
         </span>
@@ -123,9 +116,7 @@ function TimelineItem({
           {milestone.lines.map((line, i) => (
             <li
               key={i}
-              className={`flex items-start gap-3 text-navy/75 leading-relaxed ${
-                isEven ? "md:flex-row-reverse" : ""
-              }`}
+              className="flex items-start gap-3 text-navy/75 leading-relaxed"
             >
               <span className="mt-1.5 h-2 w-2 flex-none rounded-full bg-green" />
               <span>{line}</span>
@@ -133,9 +124,6 @@ function TimelineItem({
           ))}
         </ul>
       </div>
-
-      {/* Espaçador no desktop para alinhar a linha central */}
-      <div className="hidden md:block md:flex-1" />
     </div>
   );
 }
