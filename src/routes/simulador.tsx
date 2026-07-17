@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { MessageCircle, Route, TrendingUp, Target, Sparkles } from "lucide-react";
+import { MessageCircle, Route as RouteIcon, TrendingUp, Target, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/simulador")({
   component: SimuladorPage,

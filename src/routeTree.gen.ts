@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SimuladorRouteImport } from './routes/simulador'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as CalculadoraRouteImport } from './routes/calculadora'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SimuladorRoute = SimuladorRouteImport.update({
+  id: '/simulador',
+  path: '/simulador',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/calculadora': typeof CalculadoraRoute
   '/quiz': typeof QuizRoute
+  '/simulador': typeof SimuladorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/calculadora': typeof CalculadoraRoute
   '/quiz': typeof QuizRoute
+  '/simulador': typeof SimuladorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/calculadora': typeof CalculadoraRoute
   '/quiz': typeof QuizRoute
+  '/simulador': typeof SimuladorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calculadora' | '/quiz'
+  fullPaths: '/' | '/calculadora' | '/quiz' | '/simulador'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calculadora' | '/quiz'
-  id: '__root__' | '/' | '/calculadora' | '/quiz'
+  to: '/' | '/calculadora' | '/quiz' | '/simulador'
+  id: '__root__' | '/' | '/calculadora' | '/quiz' | '/simulador'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CalculadoraRoute: typeof CalculadoraRoute
   QuizRoute: typeof QuizRoute
+  SimuladorRoute: typeof SimuladorRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/simulador': {
+      id: '/simulador'
+      path: '/simulador'
+      fullPath: '/simulador'
+      preLoaderRoute: typeof SimuladorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quiz': {
       id: '/quiz'
       path: '/quiz'
@@ -89,17 +106,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CalculadoraRoute: CalculadoraRoute,
   QuizRoute: QuizRoute,
+  SimuladorRoute: SimuladorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
