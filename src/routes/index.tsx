@@ -209,19 +209,11 @@ function AleStory() {
         </div>
         <div className="order-1 md:order-2">
           <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden rounded-3xl bg-cream shadow-xl">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-navy to-navy/80 text-center p-8">
-              <div>
-                <div className="text-white/60 text-xs uppercase tracking-widest">
-                  Foto do Ale
-                </div>
-                <div className="mt-2 text-white font-black text-2xl">
-                  Ale Mancilha
-                </div>
-                <div className="mt-1 text-white/70 text-sm">
-                  Personal & fundador do Método Acelera!
-                </div>
-              </div>
-            </div>
+            <img
+              src="/ale-mancilha.jpg"
+              alt="Ale Mancilha, personal trainer e fundador do Método Acelera!"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
         </div>
       </div>
