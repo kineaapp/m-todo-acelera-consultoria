@@ -71,9 +71,11 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:py-4">
         <Link to="/" className="flex items-center gap-2 min-w-0">
-          <span className="text-lg md:text-xl font-black tracking-tight text-navy truncate">
-            Método Acelera<span className="text-orange">!</span>
-          </span>
+        <img
+            src="/logo-metodo-acelera.png"
+            alt="Método Acelera!"
+            className="h-8 md:h-10 w-auto"
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
           {navLinks.map((l) => (
