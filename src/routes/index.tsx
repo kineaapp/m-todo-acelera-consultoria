@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Instagram,
   MessageCircle,
@@ -65,18 +65,28 @@ function Header() {
             Método Acelera<span className="text-orange">!</span>
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70">
-          {/* Espaço para navegação futura */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
+          <Link to="/quiz" className="hover:text-orange transition-colors">
+            Quiz
+          </Link>
         </nav>
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange/20 transition-colors hover:bg-orange-hover"
-        >
-          <MessageCircle className="h-4 w-4" />
-          WhatsApp
-        </a>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/quiz"
+            className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
+          >
+            Quiz
+          </Link>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-orange px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-orange/20 transition-colors hover:bg-orange-hover"
+          >
+            <MessageCircle className="h-4 w-4" />
+            WhatsApp
+          </a>
+        </div>
       </div>
     </header>
   );
