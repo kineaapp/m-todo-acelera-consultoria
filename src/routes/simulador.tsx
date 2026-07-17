@@ -59,7 +59,7 @@ const MILESTONES = [
     icon: Sparkles,
     lines: [
       "O espelho já conta outra história: shape visivelmente diferente.",
-      "Novos hábitos estão consolidados — você não precisa mais "forçar".",
+      "Novos hábitos estão consolidados — você não precisa mais forçar a barra.",
       "Você entendeu que resultado inteligente não é sorte: é método e acompanhamento.",
     ],
   },
