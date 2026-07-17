@@ -72,6 +72,9 @@ function Header() {
           <Link to="/calculadora" className="hover:text-orange transition-colors">
             Calculadora
           </Link>
+          <Link to="/simulador" className="hover:text-orange transition-colors">
+            Simulador
+          </Link>
         </nav>
         <div className="flex items-center gap-2">
           <Link
@@ -85,6 +88,12 @@ function Header() {
             className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
           >
             Calculadora
+          </Link>
+          <Link
+            to="/simulador"
+            className="md:hidden text-sm font-bold text-navy hover:text-orange transition-colors px-2"
+          >
+            Simulador
           </Link>
           <a
             href={WHATSAPP_URL}
