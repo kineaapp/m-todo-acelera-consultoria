@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Instagram,
   MessageCircle,
@@ -8,6 +9,8 @@ import {
   CalendarCheck,
   Quote,
   ArrowRight,
+  Menu,
+  X,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
