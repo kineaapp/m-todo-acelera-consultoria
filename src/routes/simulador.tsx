@@ -162,7 +162,6 @@ function SimuladorPage() {
               <TimelineItem
                 key={milestone.id}
                 milestone={milestone}
-                index={index}
                 isLast={index === MILESTONES.length - 1}
               />
             ))}
