@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Instagram,
   MessageCircle,
@@ -65,8 +65,10 @@ function Header() {
             Método Acelera<span className="text-orange">!</span>
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-navy/70">
-          {/* Espaço para navegação futura */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-navy/70">
+          <Link to="/quiz" className="hover:text-orange transition-colors">
+            Quiz
+          </Link>
         </nav>
         <a
           href={WHATSAPP_URL}
